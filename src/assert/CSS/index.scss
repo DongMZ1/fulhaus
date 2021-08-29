@@ -3,31 +3,30 @@ $black-through: #000000cc;
 $white: #fff;
 $canvas: #f7ef7e;
 $green: #003941;
-
+@import "./transition.scss";
 body {
-   background-color: #E5E5E5;
+  background-color: #e5e5e5;
 }
 .Montserrat {
-   font-family: 'Montserrat';
-   font-style: normal;
+  font-family: "Montserrat";
+  font-style: normal;
 }
 
-
 .Crimson {
-   font-family: 'Crimson Text';
-   font-style: normal;
+  font-family: "Crimson Text";
+  font-style: normal;
 }
 .cover-page {
   height: 100vh;
 }
 
 .rounder-border {
-   border-radius: 38px;
+  border-radius: 38px;
 }
 
 .side-border {
-   border-left: 1px solid #000000;
-   border-right: 1px solid #000000;
+  border-left: 1px solid #000000;
+  border-right: 1px solid #000000;
 }
 
 .black-through-bg {
@@ -35,14 +34,14 @@ body {
 }
 
 .z-100 {
-   z-index: 100;
+  z-index: 100;
 }
 .green-bg {
-   background-color: $green;
+  background-color: $green;
 }
 
 .black-bg {
-   background-color: $black;
+  background-color: $black;
 }
 
 .white-bg {
@@ -50,19 +49,30 @@ body {
 }
 
 .black-color {
-   color: $black;
+  color: $black;
 }
 
 .white-color {
-   color: $white;
+  color: $white;
 }
 
 .disp-flex {
   display: flex;
 }
+.flex-colume {
+  flex-direction: column;
+}
 
 .absolute {
   position: absolute;
+}
+
+.exit-icon {
+   top:0;
+   right: 0;
+   position: absolute;
+   width: 20px;
+   padding: 0px !important;
 }
 
 .static {
@@ -74,11 +84,30 @@ body {
 }
 
 .width-90 {
-   width: 90%;
+  width: 90%;
+}
+
+.width-80 {
+   width: 80%;
+}
+
+.width-60 {
+   width: 60%;
+}
+.border-b {
+   border-bottom: 2px solid $black;
+}
+
+.overflow-auto{
+   overflow-x: auto;
+}
+
+.height-75 {
+   height: 75%;
 }
 
 .height-100 {
-   height: 100%;
+  height: 100%;
 }
 
 .nav-box-shadow {
@@ -86,76 +115,110 @@ body {
 }
 
 .height-10-vh {
-   height: 10vh;
+  height: 10vh;
 }
 
-.height-30-vh {
-   height: 30vh
+.height-20-vh {
+  height: 20vh;
+}
+
+.height-35-vh {
+  height: 35vh;
 }
 
 .height-60-vh {
-   height: 60vh;
+  height: 60vh;
 }
 
 .height-3-rem {
-   height: 3rem;
+  height: 3rem;
 }
 
 .height-12-rem {
-   height: 12rem;
+  height: 12rem;
 }
 
 .space-between {
-   justify-content: space-between;
+  justify-content: space-between;
 }
 
 .font-0-8 {
-   font-size: 0.8rem;
+  font-size: 0.8rem;
+}
+.font-0-7 {
+  font-size: 0.5rem;
 }
 
 .font-1-4 {
-   font-size: 1.2rem;
+  font-size: 1.2rem;
 }
 
 .font-2 {
-   font-size: 2rem;
+  font-size: 2rem;
 }
 
 .font-5-vw {
-   font-size: 5vw;
+  font-size: 5vw;
 }
 
 .cursor-pointer {
-   cursor: pointer;
+  cursor: pointer;
 }
 
 .bolder {
-   font-weight: 700;
+  font-weight: 700;
 }
 
 .bold {
-   font-weight: 500;
+  font-weight: 500;
 }
 
 .px-4-5 {
-   padding-right: 2rem!important;
-   padding-left: 2rem!important;
+  padding-right: 2rem !important;
+  padding-left: 2rem !important;
+}
+
+.py-2-5 {
+   padding-top: 0.8rem !important;
+   padding-bottom: 0.8rem !important;
 }
 
 .py-1-5 {
-   padding-top: 0.4rem !important;
-   padding-bottom: 0.4rem !important;
+  padding-top: 0.4rem !important;
+  padding-bottom: 0.4rem !important;
 }
 
 .side-bar {
-   position: fixed;
-   top: 10vh;
-   right: 0;
-   height: 90vh;
-   width: 30vw;
-   background-color: red;
+  position: fixed;
+  top: 10vh;
+  right: 0;
+  height: 90vh;
+  width: 42vw;
+  background-color: $white;
 }
 
 .relative {
-   position: relative;
+  position: relative;
+}
+
+.mt-10vh {
+  margin-top: 10vh;
+}
+
+.hover-black-border {
+  transition: color 0.3s linear;
+  box-sizing: border-box;
+  &:hover {
+    background-color: $white;
+    color: $black;
+    border: $black 2px solid;
+  }
+}
+
+.hover-black {
+   transition: color 0.3s linear;
+   &:hover {
+     background-color: $white;
+     color: $black;
+   }
 }

@@ -2,12 +2,13 @@ import React, { useState, useEffect } from 'react'
 import { Row, Col } from 'react-bootstrap';
 import useWindowSize from "@rooks/use-window-size"
 import navImage from './assert/image/nav-cover.png'
-
+import { CSSTransition } from 'react-transition-group';
 import Nav from './component/Nav'
 import HomePageProducts from './component/HomePageProducts';
 import SideBar from './component/SideBar';
 function App() {
   const [fetchedProducts, setfetchedProducts] = useState([]);
+  const [cartProducts, setcartProducts] = useState([]);
   const { innerWidth, innerHeight, outerHeight, outerWidth } = useWindowSize();
   const [showSideBar, setshowSideBar] = useState(false);
   useEffect(
@@ -31,24 +32,26 @@ function App() {
   return (
     <>
       <div>
-        {showSideBar && <SideBar />}
+        <CSSTransition in={showSideBar} timeout={350} classNames="reverse-row-transition" unmountOnExit>
+          <SideBar cartProducts={cartProducts} setcartProducts={setcartProducts} innerWidth={innerWidth}  />
+        </CSSTransition>
         <Nav setshowSideBar={setshowSideBar} />
         <div className={`width-100 ${innerWidth < 768 ? 'px-3' : 'px-5'}`}>
-          <img className='width-100' src={navImage} />
+          <img className='width-100 mt-10vh' src={navImage} />
         </div>
         <div className={`width-100 ${innerWidth < 768 ? 'px-3' : 'px-5'}`}>
-          <div className='green-bg width-100 white-color disp-flex height-30-vh'>
+          <div className={`green-bg width-100 white-color disp-flex ${innerWidth < 470 ? 'height-20-vh' :'height-35-vh' }`}>
             <div className='m-auto'>
               <div className={`${innerWidth < 768 ? 'font-2' : 'font-5-vw'} Crimson`}>Patio Furniture</div>
               <div className={`white-color disp-flex`}>
-                <div className='m-auto px-4-5 bold py-1-5 black-bg white-color cursor-pointer Montserrat'>shop</div>
+                <div className='m-auto px-4-5 bold py-1-5 black-bg white-color cursor-pointer hover-black Montserrat'>shop</div>
               </div>
             </div>
           </div>
         </div>
       </div>
       <div className={`width-100 ${innerWidth < 768 ? 'px-3' : 'px-5'}`}>
-        <HomePageProducts fetchedProducts={fetchedProducts} />
+        <HomePageProducts setcartProducts={setcartProducts} fetchedProducts={fetchedProducts} setshowSideBar={setshowSideBar} />
       </div>
     </>
   );

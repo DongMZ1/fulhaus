@@ -1,7 +1,8 @@
 import React,{useEffect} from 'react'
+import ReactDom from 'react-dom'
 import { Row, Col } from 'react-bootstrap'
 import Exit from '../assert/image/exit.png'
-const SideBar = ({ cartProducts, setcartProducts, innerWidth }) => {
+const SideBar = ({ cartProducts, setcartProducts, innerWidth, setshowSideBar }) => {
    
     const removeProductFromCart = (product) =>{
         if(cartProducts.length > 0){
@@ -20,7 +21,7 @@ const SideBar = ({ cartProducts, setcartProducts, innerWidth }) => {
         },[cartProducts]
     )
     
-    return <div className='side-bar px-4 z-100'>
+    return <div id='side-bar' className='side-bar px-4 z-100'>
         <div className='height-75 pb-3 overflow-auto'>
             {
                 cartProducts?.map(product => <Row className='mx-0 border-b py-3 Crimson product-in-cart relative'>

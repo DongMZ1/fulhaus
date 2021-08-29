@@ -75,6 +75,10 @@ body {
    padding: 0px !important;
 }
 
+.text-deco-none {
+   text-decoration: none;
+}
+
 .static {
   position: static;
 }
@@ -194,6 +198,12 @@ body {
   right: 0;
   height: 90vh;
   width: 42vw;
+  @media (max-width: 960px) {
+   width: 60vw;
+  }
+  @media (max-width: 720px) {
+   width: 100vw;
+  }
   background-color: $white;
 }
 

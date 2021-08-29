@@ -1,7 +1,7 @@
 import React from 'react';
 import { Row, Col } from 'react-bootstrap';
 const Nav = ({setshowSideBar}) =>{
-    return <div className='width-100 z-100 user-select-none position-fixed white-bg nav-box-shadow disp-flex height-10-vh space-between py-2'>
+    return <div id='nav-bar' className='width-100 z-100 user-select-none position-fixed white-bg nav-box-shadow disp-flex height-10-vh space-between py-2'>
           <div className='my-auto font-1-4 bolder Montserrat ms-4'>
             Fülhaus Shop
           </div>

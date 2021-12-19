@@ -7,6 +7,7 @@ import Nav from './component/Nav'
 import HomePageProducts from './component/HomePageProducts';
 import SideBar from './component/SideBar';
 import { Link } from 'react-scroll'
+import getProducts from './fakeAPI/getProducts'
 function App() {
   const [fetchedProducts, setfetchedProducts] = useState([]);
   const [cartProducts, setcartProducts] = useState([]);
@@ -15,16 +16,7 @@ function App() {
   useEffect(
     () => {
       async function fetchdata() {
-        const res = await fetch(
-          'https://main-api.fulhaus.com/fulhaus-tech-test/get-products',
-          {
-            method: 'GET',
-            headers: {
-              'Content-Type': 'application/json'
-            }
-          }
-        )
-        const resData = await res.json();
+        const resData = await getProducts()
         setfetchedProducts(resData);
       };
       fetchdata();
